@@ -51,4 +51,4 @@ As the user scrolls the page, scroll position will be interpolated to a scroll p
 
 ## Original Site
 - https://www.apple.com/airpods-pro/
-All hero images are not owned by me. Let credit be to Apple for this cool design concept. Page was created as a learning experience and to showcase my skills, no intent to commercialize. 
+- All hero images are not owned by me. Let credit be to Apple for this cool design concept. Page was created as a learning experience and to showcase my skills, no intent to commercialize. 
