@@ -2,6 +2,9 @@
 ## Summary 
 This is a partial rebuild of Apple's AirPods Pro landing page. The main focus here is dealing with HTML5 canvas in order to sequence, display and transition image files. This page displays a perceived "shifting light effect" for image transitioning. While this is not a full website rebuild, the final product serves as great practice with the HTML canvas and developing UI-enhancing animations and transitions. No complex WebGL scenes or advanced JavaScript libraries, written in Vanilla JavaScript. Pull Requests welcomed!
 
+## Live Site
+https://nickmezacapa.github.io/Apple-AirPod-Pro-Rebuild/
+
 ## Codepen Demo
 https://codepen.io/nickmezacapa/pen/jOYEoVb
 
@@ -18,7 +21,7 @@ Build a landing page that makes use of html canvas to sequence, display and tran
 - Use of HTML canvas
 
 ## Summary of Tech Stack
-No fancy frameworks or plugins are needed to reproduce these effects. The magic happens inside the HTML canvas element which is controlled with Vanilla JavaScript. By using Vanilla JavaScript, we can manipulate canvas dimensions, create and load and draw images to the canvas, and access a public directory of image files. How we manipulate the canvas will provide the sleek animation we are looking for. By synchronizing each image frame to the user's scroll position, we can play the animation as the user scrolls down or up the webpage. 
+No fancy frameworks or plugins are needed to reproduce these effects. The magic happens inside the HTML canvas element which is controlled with Vanilla JavaScript. By using Vanilla JavaScript, we can manipulate canvas dimensions, create and load and draw images to the canvas, and access a public directory of image files. How we manipulate the canvas will provide the sleek animation we are looking for. By synchronizing each image frame to the user's scroll position, we can play the animation as the user scrolls down or up the webpage. As the user scrolls, the canvas will display the image frame that corresponds to their scroll position.
 
 ## Functionality 
 As the user scrolls the page, scroll position will be interpolated to a scroll percentage which will represent the progress. The scroll percentage/progress will be relavant to a respective image frame. With each update in scroll progress, a new image will be drawn to the canvas. Transitions will be seamless. The user can scroll up or down the page and the correct image will always display.
