@@ -26,6 +26,45 @@ No fancy frameworks or plugins are needed to reproduce these effects. The magic 
 ## Functionality 
 As the user scrolls the page, scroll position will be interpolated to a scroll percentage which will represent the progress. The scroll percentage/progress will be relavant to a respective image frame. With each update in scroll progress, a new image will be drawn to the canvas. Transitions will be seamless. The user can scroll up or down the page and the correct image will always display.
 
+## Explanation
+The basic concept resembles that of a flip book. A sequence of images are rendered in rapid succession per the user's scroll position to perceive a fluid animation. As for the HTML and CSS, we need to make sure we have a canvas element to render images to, and we need our body to be at least 500vh height to give enough space to scroll. 
+
+After selecting and declaring our variables that we'll need, a good place to start is writing a function that returns the file path with the number of the image file we want.
+```
+const currentFrame = index => (
+  `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${index.toString().padStart(4, '0')}.jpg`
+)
+```
+Since the image number is an integer, we need to turn it into a string and use padStart(4, '0') to prepend zeros in front of our index until we reach four digits to match the file names. For example, passing 1 into this function will return 0001.
+
+Next we need to create a way to update each image with an image that corresponds to the user's scroll position. 
+We can make an event listener to track scrolling and handle some math to calculate which image to load.
+We need to know:
+- Where scrolling starts and ends
+- The user's scroll progress
+- Image that corresponds to scroll progress
+```
+window.addEventListener('scroll', () => {  
+  const scrollTop = html.scrollTop;                                           // vertical scroll position
+  const maxScrollTop = (html.scrollHeight - window.innerHeight);             // maximum scroll value
+  const scrollFraction = scrollTop / maxScrollTop;                          // gives user scroll progress as %
+```
+Then we need to turn that scroll progress into an index number that corresponds with the image numbering sequence for us to return the correct image for that position. We can do this by multiplying the progress number by the number of frames (images) we have. We’ll use `Math.floor()` to round that number down and wrap it in `Math.min()` with our maximum frame count so it never exceeds the total number of frames.
+
+Lastly, we need to render the correct image to the canvas according to the scroll position. To do so, we use the magic of `canvas` and `requestAnimationFrame()`. We will write a function that will update the image source and drae the new image on the `canvas`.
+```
+requestAnimationFrame(() => updateImage(frameIndex +1))
+```
+We increase the frame index by 1 because, while the image sequence starts at 0001.jpg, our scroll progress calculation actually starts at 0. This ensures that the two values are always aligned.
+
+The callback function we pass to update the image:
+```
+const updateImage = index => {
+img.src = currentFrame(index);
+context.drawImage(img, 0, 0);
+```
+We pass the frameIndex into the function. That sets the image source with the next image in the sequence which is drawn to the `canvas`.
+
 ## Run Locally:
 1. Run this command: `git clone https://github.com/NickMezacapa/Apple-AirPod-Pro-Rebuild.git`
 2. Run `npm install`
