@@ -1,5 +1,6 @@
 # Apple-AirPod-Pro-Rebuild
-![airpods-build-sc1](https://user-images.githubusercontent.com/89874146/159143579-85eb57bb-d92b-41e9-a8be-99f20885cd94.png)
+#### Scroll-based animation, altering light perception:
+https://user-images.githubusercontent.com/89874146/160299108-47b0af21-9fc3-4cfd-b4d7-f2537b40781a.mov
 
 ## Summary 
 This is a partial rebuild of Apple's AirPods Pro landing page. The main focus here is dealing with HTML5 canvas in order to sequence, display and transition image files. This page displays a perceived "shifting light effect" for image transitioning. While this is not a full website rebuild, the final product serves as great practice with the HTML canvas and developing UI-enhancing animations and transitions. No complex WebGL scenes or advanced JavaScript libraries, written in Vanilla JavaScript. Pull Requests welcomed!
