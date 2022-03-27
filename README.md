@@ -1,5 +1,5 @@
 # Apple-AirPod-Pro-Rebuild
-#### Scroll-based animation, altering light perception:
+#### Scroll-based animation, altering the perception of the light position:
 https://user-images.githubusercontent.com/89874146/160299108-47b0af21-9fc3-4cfd-b4d7-f2537b40781a.mov
 
 ## Summary 
